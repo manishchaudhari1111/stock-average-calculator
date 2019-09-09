@@ -4,21 +4,26 @@ class StockList extends React.Component {
 
     constructor(props){
         super(props);
-        this.handleChange = this.handleChange.bind(this);
+        this.handleChangeQty = this.handleChangeQty.bind(this);
+        this.handleChangePrice = this.handleChangePrice.bind(this);
     }
 
-    handleChange(event){
-        this.props.change();
+    handleChangeQty(event){
+        this.props.changeQty(event.target.name, event.target.value);
+    }
+
+    handleChangePrice(event){
+        this.props.changePrice(event.target.name, event.target.value);
     }
 
     render(){
         return (
             <div>
                 <div>
-                    <input type="text" name="qty1" value="" onChange={this.handleChange}></input>
+                    <input type="text" name="qty1" value={this.props.quantity} onChange={this.handleChangeQty}></input>
                 </div>
                 <div>
-                    <input type="text" name="price1" value="" onChange={this.handleChange}></input>
+                    <input type="text" name="price1" value={this.props.price} onChange={this.handleChangePrice}></input>
                 </div>
             </div>
         )
