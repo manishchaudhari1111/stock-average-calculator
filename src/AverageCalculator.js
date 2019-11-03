@@ -44,7 +44,7 @@ const AverageCalculator = () => {
                 <h2 className="main-heading">Stock Average Calculator</h2>
                 <div className="sub-heading">
                     <h3>Stock Quantity</h3>
-                    <h3>Stock Price</h3>
+                    <h3>Stock Price / Share</h3>
                 </div>
                 <form onSubmit={handleSubmit}>
                     <div className="input-group-list">
@@ -56,12 +56,12 @@ const AverageCalculator = () => {
                 </form>
                 <div className="total-average-display">
                     <div className="sub-heading">
-                        <h3>No. of Shares</h3>
+                        <h3>Total No. of Shares</h3>
                         <h3>Average Price / Share</h3>
                     </div>
                     <div className="sub-heading result">
-                        <h3>{averageAndNumOfStocks.totalNumberOfStocks}</h3>
-                        <h3>${averageAndNumOfStocks.average}</h3>
+                        <h3>{averageAndNumOfStocks.totalNumberOfStocks > 0 ? averageAndNumOfStocks.totalNumberOfStocks : '--'}</h3>
+                        <h3><span className="inr-symbol">₹</span>{averageAndNumOfStocks.average > 0 ? Math.round(averageAndNumOfStocks.average) !== averageAndNumOfStocks.average ? averageAndNumOfStocks.average.toFixed(4) : averageAndNumOfStocks.average : '--'}</h3>
                     </div>
                 </div>
             </div>
