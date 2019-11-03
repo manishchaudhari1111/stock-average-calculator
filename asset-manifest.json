@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/stock-average-calculator/static/css/main.d39d9c82.chunk.css",
-    "main.js": "/stock-average-calculator/static/js/main.02b0de1e.chunk.js",
-    "main.js.map": "/stock-average-calculator/static/js/main.02b0de1e.chunk.js.map",
+    "main.css": "/stock-average-calculator/static/css/main.38f49a99.chunk.css",
+    "main.js": "/stock-average-calculator/static/js/main.fab68397.chunk.js",
+    "main.js.map": "/stock-average-calculator/static/js/main.fab68397.chunk.js.map",
     "runtime~main.js": "/stock-average-calculator/static/js/runtime~main.e872f82f.js",
     "runtime~main.js.map": "/stock-average-calculator/static/js/runtime~main.e872f82f.js.map",
     "static/js/2.236906fe.chunk.js": "/stock-average-calculator/static/js/2.236906fe.chunk.js",
     "static/js/2.236906fe.chunk.js.map": "/stock-average-calculator/static/js/2.236906fe.chunk.js.map",
     "index.html": "/stock-average-calculator/index.html",
-    "precache-manifest.316f9ab84089963375f11d24aebcadc3.js": "/stock-average-calculator/precache-manifest.316f9ab84089963375f11d24aebcadc3.js",
+    "precache-manifest.2f13f9cd02cb30b0de19cf7421642a12.js": "/stock-average-calculator/precache-manifest.2f13f9cd02cb30b0de19cf7421642a12.js",
     "service-worker.js": "/stock-average-calculator/service-worker.js",
-    "static/css/main.d39d9c82.chunk.css.map": "/stock-average-calculator/static/css/main.d39d9c82.chunk.css.map"
+    "static/css/main.38f49a99.chunk.css.map": "/stock-average-calculator/static/css/main.38f49a99.chunk.css.map"
   }
 }

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/stock-average-calculator/precache-manifest.316f9ab84089963375f11d24aebcadc3.js"
+  "/stock-average-calculator/precache-manifest.2f13f9cd02cb30b0de19cf7421642a12.js"
 );
 
 self.addEventListener('message', (event) => {
