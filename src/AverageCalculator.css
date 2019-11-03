@@ -1,71 +1,61 @@
-.average-calculator{
+.main-container{
     height: 100vh;
+    background: rgb(12,137,227);
+    background: linear-gradient(90deg, rgba(12,137,227,0.9598214285714286) 45%, rgba(26,122,157,0.7973564425770308) 100%);
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-.container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-}
-
-.stock-price-list{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+.stock-average-calculator{
     width: 500px;
-    border-radius: 5px;
-    background-color: #fff;
-    padding: 15px;
     -webkit-box-shadow: -4px 10px 30px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: -4px 10px 30px 0px rgba(0,0,0,0.75);
     box-shadow: -4px 10px 30px 0px rgba(0,0,0,0.75);
+    padding: 15px;
+    background-color: #ffffff;
 }
 
-h5{
-    margin: 0px 0px 5px 0px;
-    text-align: left;
-    font-weight: 400;
+.main-heading{
+    text-align: center;
+    margin-top: 0px;
     text-transform: uppercase;
-    font-size: 12px;
-}
-
-h3{
+    margin: 0px;
     text-transform: uppercase;
+    font-size: 22px;
 }
 
-.stock-price-list > div{
+.sub-heading{
     display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-transform: uppercase;
+}
+
+.sub-heading h3{
+    width: 49%;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.sub-heading h3:first-child{
+    margin-right: auto;
+}
+
+.input-group{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 5px;
 }
 
-.stock-price-list > div > div{
-    margin: 0 5px;
+.input-group .form-input{
+    width: 49%;
 }
 
-.stock-price-list > div > div input:focus{
-    outline: none;
-}
-
-.list-heading{
-    width: 75%;
-}
-
-.list-heading > div{
-    width: 50%;
-}
-
-.btn-container{
-    justify-content: center;
-    margin-top: 10px;
-    width: 100%
-}
-
-.btn-container button{
-    padding: 10px 20px;
+button{
+    padding: .5rem 3rem;
     text-align: center;
     text-transform: uppercase;
     transition: 0.5s;
@@ -75,11 +65,10 @@ h3{
     cursor: pointer;
     box-shadow: 0 0 20px #eee;
     display: block;
-    background-image: linear-gradient(to right, #4776E6 0%, #8E54E9 51%, #4776E6 100%)
+    background-image: linear-gradient(90deg, rgba(12,137,227,0.9598214285714286) 45%, rgba(26,122,157,0.7973564425770308) 100%);
 }
-.btn-container button:hover { background-position: right center; }
+button:hover { background-position: right center; }
 
 button:focus{
     outline: none;
 }
-

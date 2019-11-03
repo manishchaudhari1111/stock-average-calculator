@@ -1,46 +1,3 @@
-// import React, { Component, useState } from 'react';
-// import StockList from './StockList'
-
-// import './AverageCalculator.css';
-
-// const AverageCalculator = () => {
-
-//     change(event) {
-//         alert("change...")
-//     }
-
-//     handleSubmit(event){
-//         event.preventDefault();
-//         alert("Success...")
-//     }
-
-//     return (
-        // <div className="average-calculator">
-        //     <form onSubmit={this.handleSubmit}>
-        //         <div className="container">
-        //             <div className="stock-price-list">
-        //                 <h3>Stock Average Calculator</h3>
-        //                 <div className="list-heading">
-        //                     <div>
-        //                         <h5>Stocks Purchased</h5>
-        //                     </div>
-        //                     <div>
-        //                         <h5>Unit Price</h5>
-        //                     </div>
-        //                 </div>
-        //                 {[1, 2, 3].map(ls => <StockList change={this.change}/>)}
-        //                 <div className="btn-container">
-        //                     <button>Calculate</button>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     </form>
-        // </div>
-//     );
-// }
-
-// export default AverageCalculator;
-
 import React, {useState} from 'react';
 import StockList from './StockList';
 
@@ -49,45 +6,54 @@ import './AverageCalculator.css';
 
 const AverageCalculator = () => {
 
+    const [numberOfInputs, addInputsRow] = useState([1, 2, 3]);
     const [stockQty, addToStockQuantity] = useState({});
     const [stockPrice, addToStockprice] = useState({});
 
     const changeQty = (name, qty) => {
         addToStockQuantity({...stockQty, [name]: qty});
-        console.log("stockQty", stockQty); 
     }
 
     const changePrice = (name, price) => {
         addToStockprice({...stockPrice, [name]: price});
-        console.log("stockPrice", stockPrice); 
+    }
+
+    const addRow = () => {
+        addInputsRow([...numberOfInputs, numberOfInputs.length + 1])
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert("Success...")
+        let totalNumberOfStocks = 0;
+        let totalPrice = 0;
+        numberOfInputs.forEach(element => {
+            if (stockQty[`qty${element}`] && stockPrice[`price${element}`]){
+                totalNumberOfStocks += parseInt(stockQty[`qty${element}`]);
+                totalPrice += parseInt(stockPrice[`price${element}`]) * parseInt(stockQty[`qty${element}`]);
+            } 
+        });
+        var average = totalPrice / totalNumberOfStocks;
+        console.log("Average", average);
+        
     }
 
     return (
-        <div className="average-calculator">
-            <form onSubmit={handleSubmit}>
-                <div className="container">
-                    <div className="stock-price-list">
-                        <h3>Stock Average Calculator</h3>
-                        <div className="list-heading">
-                            <div>
-                                <h5>Stocks Purchased</h5>
-                            </div>
-                            <div>
-                                <h5>Unit Price</h5>
-                            </div>
-                        </div>
-                        {[1, 2, 3].map(ls => <StockList key={ls} quantity={stockQty[`qty${ls}`]} price={stockPrice[`price${ls}`]} changeQty={changeQty} changePrice={changePrice}/>)}
-                        <div className="btn-container">
+        <div className="main-container">
+            <div className="stock-average-calculator">
+                <h2 className="main-heading">Stock Average Calculator</h2>
+                <div className="sub-heading">
+                    <h3>Stock Quantity</h3>
+                    <h3>Stock Price</h3>
+                </div>
+                <form onSubmit={handleSubmit}>
+                    <div className="input-group-list">
+                        {[1, 2, 3].map(ls => <StockList key={ls} num={ls} quantity={stockQty[`qty${ls}`]} price={stockPrice[`price${ls}`]} changeQty={changeQty} changePrice={changePrice}/>)}
+                        <div className="input-group">
                             <button>Calculate</button>
                         </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     )
 }

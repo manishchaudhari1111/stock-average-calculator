@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 class StockList extends React.Component {
 
     constructor(props){
         super(props);
+        console.log(this.props);
+        
         this.handleChangeQty = this.handleChangeQty.bind(this);
         this.handleChangePrice = this.handleChangePrice.bind(this);
     }
@@ -18,13 +20,9 @@ class StockList extends React.Component {
 
     render(){
         return (
-            <div>
-                <div>
-                    <input type="text" name="qty1" value={this.props.quantity} onChange={this.handleChangeQty}></input>
-                </div>
-                <div>
-                    <input type="text" name="price1" value={this.props.price} onChange={this.handleChangePrice}></input>
-                </div>
+            <div className="input-group">
+                <input className="form-input" name={`qty${this.props.num}`} value={this.props.quantity} onChange={this.handleChangeQty}/>
+                <input className="form-input" type="text" name={`price${this.props.num}`} value={this.props.price} onChange={this.handleChangePrice} />
             </div>
         )
     }
