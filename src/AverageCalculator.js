@@ -6,9 +6,10 @@ import './AverageCalculator.css';
 
 const AverageCalculator = () => {
 
-    const [numberOfInputs, addInputsRow] = useState([1, 2, 3]);
+    const [numberOfInputs, addInputsRow] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
     const [stockQty, addToStockQuantity] = useState({});
     const [stockPrice, addToStockprice] = useState({});
+    const [averageAndNumOfStocks, totalstocks] = useState({});
 
     const changeQty = (name, qty) => {
         addToStockQuantity({...stockQty, [name]: qty});
@@ -18,9 +19,9 @@ const AverageCalculator = () => {
         addToStockprice({...stockPrice, [name]: price});
     }
 
-    const addRow = () => {
-        addInputsRow([...numberOfInputs, numberOfInputs.length + 1])
-    }
+    // const addRow = () => {
+    //     addInputsRow([...numberOfInputs, numberOfInputs.length + 1])
+    // }
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -33,7 +34,7 @@ const AverageCalculator = () => {
             } 
         });
         var average = totalPrice / totalNumberOfStocks;
-        console.log("Average", average);
+        totalstocks({...averageAndNumOfStocks, average, totalNumberOfStocks});
         
     }
 
@@ -47,12 +48,22 @@ const AverageCalculator = () => {
                 </div>
                 <form onSubmit={handleSubmit}>
                     <div className="input-group-list">
-                        {[1, 2, 3].map(ls => <StockList key={ls} num={ls} quantity={stockQty[`qty${ls}`]} price={stockPrice[`price${ls}`]} changeQty={changeQty} changePrice={changePrice}/>)}
+                        {numberOfInputs.map(ls => <StockList key={ls} num={ls} quantity={stockQty[`qty${ls}`]} price={stockPrice[`price${ls}`]} changeQty={changeQty} changePrice={changePrice}/>)}
                         <div className="input-group">
                             <button>Calculate</button>
                         </div>
                     </div>
                 </form>
+                <div className="total-average-display">
+                    <div className="sub-heading">
+                        <h3>No. of Shares</h3>
+                        <h3>Average Price / Share</h3>
+                    </div>
+                    <div className="sub-heading result">
+                        <h3>{averageAndNumOfStocks.totalNumberOfStocks}</h3>
+                        <h3>${averageAndNumOfStocks.average}</h3>
+                    </div>
+                </div>
             </div>
         </div>
     )
