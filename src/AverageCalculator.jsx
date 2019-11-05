@@ -19,18 +19,14 @@ const AverageCalculator = () => {
         addToStockprice({...stockPrice, [name]: price});
     }
 
-    // const addRow = () => {
-    //     addInputsRow([...numberOfInputs, numberOfInputs.length + 1])
-    // }
-
     const handleSubmit = (event) => {
         event.preventDefault();
         let totalNumberOfStocks = 0;
         let totalPrice = 0;
         numberOfInputs.forEach(element => {
             if (stockQty[`qty${element}`] && stockPrice[`price${element}`]){
-                totalNumberOfStocks += parseInt(stockQty[`qty${element}`]);
-                totalPrice += parseInt(stockPrice[`price${element}`]) * parseInt(stockQty[`qty${element}`]);
+                totalNumberOfStocks += Number(stockQty[`qty${element}`]);
+                totalPrice += Number(stockPrice[`price${element}`]) * Number(stockQty[`qty${element}`]);
             } 
         });
         var average = totalPrice / totalNumberOfStocks;

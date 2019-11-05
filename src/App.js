@@ -1,7 +1,5 @@
 import React from 'react';
-import AverageCalculator from './AverageCalculator'
-
-import './App.css';
+import AverageCalculator from './AverageCalculator';
 
 function App() {
   return (
